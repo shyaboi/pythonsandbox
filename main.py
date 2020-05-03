@@ -1,4 +1,5 @@
 import turtle 
+import winsound
 
 wn = turtle.Screen()
 wn.title('ponglyfe')
@@ -32,8 +33,22 @@ ball.shape('square')
 ball.color('white')
 ball.penup()
 ball.goto(0,0)
-ball.dx = .05
-ball.dy = -.05
+ball.dx = .1
+ball.dy = -.1
+
+
+# Score Card
+pen = turtle.Turtle()
+pen.speed(0)
+pen.color('white')
+pen.penup()
+pen.hideturtle()
+pen.goto(0,260)
+pen.write('Playa Left: 0 Playa Right: 0', align='center', font=('Courier', 24, 'normal'))
+
+# Score Function
+score_a = 0
+score_b = 0
 
 
 # function
@@ -87,19 +102,29 @@ while True:
     if ball.ycor() > 290:
         ball.sety(290)
         ball.dy *= -1
+        winsound.PlaySound("shyaboi.wav", winsound.SND_ASYNC)
         # bottom boarder
     if ball.ycor() < -290:
         ball.sety(-290)
         ball.dy *= -1
+        winsound.PlaySound("shyaboi.wav", winsound.SND_ASYNC)
         # right "goal"
     if ball.xcor() > 390:
         ball.goto(0, 0)
         ball.dx *= -1
+        score_a += 1
+        winsound.PlaySound("jayz_yessir.wav", winsound.SND_ASYNC)
+        pen.clear()
+        pen.write("Playa Left: {}  Playa Right: {} ".format(score_a, score_b), align='center', font=('Courier', 24, 'normal'))
 
       # left "goal"
     if ball.xcor() < -390:
         ball.goto(0, 0)
         ball.dx *= -1
+        score_b += 1
+        winsound.PlaySound("business-man.wav", winsound.SND_ASYNC)
+        pen.clear()
+        pen.write("Playa Left: {}  Playa Right: {} ".format(score_a, score_b), align='center', font=('Courier', 24, 'normal'))
 
 
 # paddle and ball collision

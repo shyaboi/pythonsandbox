@@ -25,7 +25,13 @@ pad_a.shapesize(stretch_wid=5, stretch_len=1)
 pad_a.penup()
 pad_a.goto(350,0)
 
-
+# ball
+ball = turtle.Turtle()
+ball.speed(0)
+ball.shape('square')
+ball.color('white')
+ball.penup()
+ball.goto(0,0)
 
 
 while True:

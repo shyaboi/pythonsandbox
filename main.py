@@ -132,9 +132,11 @@ while True:
     if (ball.xcor() < -340 and ball.xcor() > -350) and (ball.ycor() < pad_a.ycor() + 50 and ball.ycor() > pad_a.ycor() -50):
         ball.setx(-340)
         ball.dx *= -1
+        winsound.PlaySound("shyaboi.wav", winsound.SND_ASYNC)
 
         
             # pad b
     if (ball.xcor() > 340 and ball.xcor() < 350) and (ball.ycor() < pad_b.ycor() + 50 and ball.ycor() > pad_b.ycor() -50):
         ball.setx(340)
         ball.dx *= -1
+        winsound.PlaySound("shyaboi.wav", winsound.SND_ASYNC)

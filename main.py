@@ -93,10 +93,23 @@ while True:
         ball.dy *= -1
         # right "goal"
     if ball.xcor() > 390:
-        # ball.goto(0, 0)
+        ball.goto(0, 0)
         ball.dx *= -1
 
       # left "goal"
     if ball.xcor() < -390:
-        # ball.goto(0, 0)
+        ball.goto(0, 0)
+        ball.dx *= -1
+
+
+# paddle and ball collision
+            # pad a
+    if (ball.xcor() < -340 and ball.xcor() > -350) and (ball.ycor() < pad_a.ycor() + 50 and ball.ycor() > pad_a.ycor() -50):
+        ball.setx(-340)
+        ball.dx *= -1
+
+        
+            # pad b
+    if (ball.xcor() > 340 and ball.xcor() < 350) and (ball.ycor() < pad_b.ycor() + 50 and ball.ycor() > pad_b.ycor() -50):
+        ball.setx(340)
         ball.dx *= -1

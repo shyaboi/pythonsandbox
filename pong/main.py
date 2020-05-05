@@ -1,5 +1,5 @@
 import turtle 
-import winsound
+# import winsound
 
 wn = turtle.Screen()
 wn.title('ponglyfe')
@@ -33,8 +33,8 @@ ball.shape('square')
 ball.color('white')
 ball.penup()
 ball.goto(0,0)
-ball.dx = .1
-ball.dy = -.1
+ball.dx = 1
+ball.dy = -1
 
 
 # Score Card
@@ -102,18 +102,22 @@ while True:
     if ball.ycor() > 290:
         ball.sety(290)
         ball.dy *= -1
-        winsound.PlaySound("shyaboi.wav", winsound.SND_ASYNC)
+        # winsound.PlaySound("shyaboi.wav", winsound.SND_ASYNC)
+
+
         # bottom boarder
     if ball.ycor() < -290:
         ball.sety(-290)
         ball.dy *= -1
-        winsound.PlaySound("shyaboi.wav", winsound.SND_ASYNC)
+        # winsound.PlaySound("shyaboi.wav", winsound.SND_ASYNC)
+
+
         # right "goal"
     if ball.xcor() > 390:
         ball.goto(0, 0)
         ball.dx *= -1
         score_a += 1
-        winsound.PlaySound("jayz_yessir.wav", winsound.SND_ASYNC)
+        # winsound.PlaySound("jayz_yessir.wav", winsound.SND_ASYNC)
         pen.clear()
         pen.write("Playa Left: {}  Playa Right: {} ".format(score_a, score_b), align='center', font=('Courier', 24, 'normal'))
 
@@ -122,7 +126,7 @@ while True:
         ball.goto(0, 0)
         ball.dx *= -1
         score_b += 1
-        winsound.PlaySound("business-man.wav", winsound.SND_ASYNC)
+        # winsound.PlaySound("business-man.wav", winsound.SND_ASYNC)
         pen.clear()
         pen.write("Playa Left: {}  Playa Right: {} ".format(score_a, score_b), align='center', font=('Courier', 24, 'normal'))
 
@@ -132,11 +136,11 @@ while True:
     if (ball.xcor() < -340 and ball.xcor() > -350) and (ball.ycor() < pad_a.ycor() + 50 and ball.ycor() > pad_a.ycor() -50):
         ball.setx(-340)
         ball.dx *= -1
-        winsound.PlaySound("shyaboi.wav", winsound.SND_ASYNC)
+        # winsound.PlaySound("shyaboi.wav", winsound.SND_ASYNC)
 
         
             # pad b
     if (ball.xcor() > 340 and ball.xcor() < 350) and (ball.ycor() < pad_b.ycor() + 50 and ball.ycor() > pad_b.ycor() -50):
         ball.setx(340)
         ball.dx *= -1
-        winsound.PlaySound("shyaboi.wav", winsound.SND_ASYNC)
+        # winsound.PlaySound("shyaboi.wav", winsound.SND_ASYNC)

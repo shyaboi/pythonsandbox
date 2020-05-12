@@ -10,4 +10,4 @@ wn.tracer(0)
 
 # game looop
 while True:
-    wn.update()
+    wn.update() 
